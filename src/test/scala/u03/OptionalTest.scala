@@ -1,7 +1,7 @@
 package u02
 
-import org.junit.*
 import org.junit.Assert.*
+import org.junit.*
 
 class OptionTest:
 

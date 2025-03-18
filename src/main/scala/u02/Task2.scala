@@ -2,6 +2,8 @@ package u02
 
 import u02.Modules.Person
 
+import scala.annotation.tailrec
+
 object Task2:
 
   import u02.Modules.Person.*
@@ -17,7 +19,14 @@ object Task2:
             case Teacher(_, c) => c
             case _ => ""
         }
-
         map(filter(s)(teacherPredicate))(getCourseFromTeacher)
 
-
+    @tailrec
+    def foldLeft(s: Sequence[Int])(acc: Int)(f: (Int, Int) => Int): Int = s match
+        case Cons(h, t) => foldLeft(t)(f(acc, h))(f)
+        case _ => acc
+        
+    @tailrec
+    def foldLeftGeneric[A](s: Sequence[A])(acc: A)(f: (A, A) => A): A = s match
+        case Cons(h, t) => foldLeftGeneric(t)(f(acc, h))(f)
+        case _ => acc

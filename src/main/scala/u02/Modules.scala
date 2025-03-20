@@ -1,11 +1,14 @@
 package u02
 
+import u03.Sequences.Sequence
+
 object Modules extends App:
 
   // An ADT: type + module
   enum Person:
     case Student(name: String, year: Int)
     case Teacher(name: String, course: String)
+    case TeacherPro(name: String, courses: Sequence[String])
 
   object Person:
     def name(p: Person): String = p match

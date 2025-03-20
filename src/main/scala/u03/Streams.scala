@@ -53,6 +53,10 @@ object Streams extends App:
       case (Cons(h1, t1), _) => cons(h1(), interleave(t1(), empty()))
       case (_, Cons(h2, t2)) => cons(h2(), interleave(empty(), t2()))
       case _ => empty()
+      
+    def fill[A](n: Int)(k: A): Stream[A] =
+      take(iterate(k)(_ => k))(n)
+      
 
   end Stream
 end Streams

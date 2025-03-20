@@ -12,6 +12,10 @@ object Sequences: // Essentially, generic linkedlists
     case Nil()
 
   object Sequence:
+    
+    def count[A](s: Sequence[A]): Int = s match
+      case Cons(_, t) => 1 + count(t)
+      case _ => 0
 
     def sum(l: Sequence[Int]): Int = l match
       case Cons(h, t) => h + sum(t)

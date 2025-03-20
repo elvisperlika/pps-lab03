@@ -85,5 +85,9 @@ class SequenceTest:
     val (evenEmpty, oddEmpty) = partition(emptySequence)(x => true)
     assertEquals(Nil(), evenEmpty)
     assertEquals(Nil(), oddEmpty)
+    
+  @Test def testCount() =
+    val list = Cons(1, Cons(2, Cons(5, Cons (2, Nil()))))
+    assertEquals(4, count(list))
 
 end SequenceTest
